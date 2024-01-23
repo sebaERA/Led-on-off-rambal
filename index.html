@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rambal - Controlador LED</title>
+    <!-- Incluye las bibliotecas de Firebase, jQuery y Font Awesome -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <!-- Incluye estilos mejorados para los botones -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .wrapper {
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .icon1 {
+            text-decoration: none;
+            color: black;
+        }
+        .progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100px;
+        }
+        .toggle-btn {
+            width: 60px; /* Mayor tamaño para un efecto de switch más pronunciado */
+            height: 20px;
+            border-radius: 15px; /* Redondear los bordes para simular un switch */
+            background-color: #ddd;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Inicia el círculo a la izquierda */
+            padding: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .inner-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+            transition: transform 0.3s ease-in-out;
+        }
+        #act .inner-circle {
+            transform: translateX(30px); /* Mueve el círculo hacia la derecha al encender */
+            background-color: blue; /* Cambia a azul cuando está encendido */
+        }
+        #unact .inner-circle {
+            transform: translateX(0); /* Mueve el círculo de vuelta a la posición original al apagar */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Rambal - Controlador LED</h1>
+        <a class="icon1" href="#">
+            <!-- Utiliza un ícono de Font Awesome, asegúrate de tener la biblioteca incluida -->
+            <i class="fas fa-4x fa-tv"></i>
+        </a>
+        <div class="progress">
+            <div class="toggle-btn" id="unact">
+                <div class="inner-circle"></div>
+            </div>
+            <div class="toggle-btn active" id="act">
+                <div class="inner-circle"></div>
+            </div>
+        </div>
+       
+    </div>
+</body>
+</html>
